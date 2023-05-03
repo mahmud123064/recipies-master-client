@@ -13,13 +13,13 @@ const Recipies = ({recipieData}) => {
                         <Card.Body>
                             <Card.Title>{recipieData?.chef_name}</Card.Title>
                             <Card.Text>
-                              <p>  Experience: {recipieData.experience}</p>
+                              <p>Experiencec : {recipieData.experience}</p>
                             </Card.Text>
                             <Card.Text>
-                              <p>  Numbers of recipes: {recipieData?.number}</p>
+                              <p>  Numbers of recipes : {recipieData?.number}</p>
                             </Card.Text>
                             <Card.Text>
-                              <p>  Total Likes: {recipieData.like}</p>
+                              <p>  Total Likes : {recipieData.like}</p>
                             </Card.Text>
                         </Card.Body>
 
