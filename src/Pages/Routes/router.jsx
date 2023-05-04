@@ -12,11 +12,13 @@ import RecipiesLayout from '../../Layout/RecipiesLayout';
 import Recipies from '../Recipies/Recipies';
 import RecipiesDetails from '../RecipiesDetails/RecipiesDetails';
 import PrivateRoute from './PrivateRoute';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginLayout></LoginLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path: '/',
