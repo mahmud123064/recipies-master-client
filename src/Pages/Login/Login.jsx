@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
 
     const { loginUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,6 +25,7 @@ const Login = () => {
         if (email, password) {
             loginUser(email, password)
                 .then(result => {
+                    navigate("/")
                     console.log(result);
                     setSuccessfull("Successfully Logged In")
                 })

@@ -11,6 +11,7 @@ import Blog from '../Blog/Blog';
 import RecipiesLayout from '../../Layout/RecipiesLayout';
 import Recipies from '../Recipies/Recipies';
 import RecipiesDetails from '../RecipiesDetails/RecipiesDetails';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path:':id',
-        element:<RecipiesDetails></RecipiesDetails>
+        element:(
+          <PrivateRoute>
+            <RecipiesDetails></RecipiesDetails>
+          </PrivateRoute>
+        )
       }
     ]
   }
