@@ -24,7 +24,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <h5>RECIPIES MASTER</h5>
+                        <Link className='text-decoration-none' to = "/"><h5>RECIPIES MASTER</h5></Link>
                         <Nav className="mx-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/blog">Blog</Nav.Link>

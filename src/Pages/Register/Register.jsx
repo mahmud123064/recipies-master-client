@@ -91,8 +91,7 @@ const Register = () => {
                 <Form.Text className="text-secondary">
                     <p>Already have an account <Link to='/login'>Please login</Link></p>
                 </Form.Text>
-
-
+                
                 <Form.Text className="text-success">
                     <p>{successfull}</p>
                 </Form.Text>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Recipies from '../../Recipies/Recipies';
+import Banner from '../../../Pages/Banner/Banner';
 
 const Home = () => {
 
@@ -13,33 +14,25 @@ const Home = () => {
             .then((data) => setRecipiesData(data))
 
     }, []);
+    
 
     return (
-        <div className = "recipies">
-            {/* //////////////////////////////////// */}
-            {
+        <div>
+            <Banner></Banner>
+            <div>
+                <h3 className = "mt-3 mb-3 text-center" >Our chef details</h3>
+            </div>
+            {/* /////////////// Create a Card ///////////////////// */}
+           <div  className = "recipies">
+           {
                 recipiesData.map(recipieData => <Recipies
                 key = {recipieData.id}
                 recipieData ={recipieData} 
                 >
-                    {/* <Card >
-                        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-                        <Card.Body>
-                            <Card.Title>{recipieData.chef_name}</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                        </Card.Body>
-
-                        <Card.Body>
-                            <Link><Button>Recipie Details</Button></Link>
-
-                        </Card.Body>
-                    </Card> */}
                 </Recipies>
                 )
             }
+           </div>
 
         </div>
     );
