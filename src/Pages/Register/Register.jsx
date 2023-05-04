@@ -10,6 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [photo, setPhoto] = useState("");
     const [error, setError] = useState("");
+    const [successfull, setSuccessfull] = useState("");
 
 
     const { registerUser } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const Register = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
+        setError(" ")
         console.log(name, email, photo, password);
 
 
@@ -30,24 +32,27 @@ const Register = () => {
         //     return;
         //   }
 
-        if (!/ (?=.*[A-Z])  /.test(password)) {
-            setError("should contain at least one upper case");
-            return;
-        }
-        if(!/([a-zA-Z0-9]{8,})/.test.apply(password)){
-            setError("should contain at least 8 from the mentioned characters");
-            return;
-        }
+        // if (!/ (?=.*[A-Z])  /.test(password)) {
+        //     setError("should contain at least one upper case");
+        //     return;
+        // }
+        // else if (password.length < 6) {
+        //     setError("should contain at least 6 from the mentioned characters");
+        //     return;
+        // }
 
         if (name, email, photo, password) {
-            registerUser()
+            registerUser(email,password)
 
                 .then((result) => {
                     console.log(result.user);
-                    setError(" ")
+                    setError(" ");
+                    event.target.reset();
+                    setSuccessfull("User Created successfully")
                 })
                 .catch((err) => {
                     setError(err.message);
+                    setSuccessfull(" ");
                 });
         }
     }
@@ -89,7 +94,7 @@ const Register = () => {
 
 
                 <Form.Text className="text-success">
-
+                    <p>{successfull}</p>
                 </Form.Text>
 
                 <Form.Text className="text-danger">
