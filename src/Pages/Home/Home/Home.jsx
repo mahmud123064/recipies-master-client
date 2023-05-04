@@ -10,7 +10,7 @@ const Home = () => {
     const [recipiesData, setRecipiesData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allData')
+        fetch('https://the-recipies-master-server.vercel.app/allData')
             .then(res => res.json())
             .then((data) => setRecipiesData(data))
 
@@ -22,13 +22,28 @@ const Home = () => {
             <Banner></Banner>
 
             <div className=''>
-               <h3> <Marquee speed={100} className='bg-secondary p-3 text-white-50'>
+                <h3> <Marquee speed={100} className='bg-secondary p-3 text-white-50'>
                     50% Off to our all Food Items
                 </Marquee></h3>
             </div>
+            
+
+            <div>
+                <h3 className='text-center'>Our recipies list</h3>
+                <div className='text-center'>
+                    <p>Butter</p>
+                    <p>Cheese</p>
+                    <p>Yoghurt</p>
+                    <p>Sandwich</p>
+                    <p>Pancake</p>
+
+                </div>
+            </div>
+
             <div>
                 <h3 className="mt-3 mb-3 text-center" >Our chef details</h3>
             </div>
+
             {/* /////////////// Create a Card ///////////////////// */}
             <div className="recipies">
                 {

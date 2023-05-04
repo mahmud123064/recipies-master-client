@@ -47,12 +47,18 @@ const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
-        path:':id',
-        element:(
+        path:':Id',
+        element:
           <PrivateRoute>
-            <RecipiesDetails></RecipiesDetails>
-          </PrivateRoute>
-        )
+            <RecipiesDetails></RecipiesDetails>,   
+          </PrivateRoute>,
+          loader: async({params})=> {
+            const res =await fetch(`https://the-recipies-master-server.vercel.app/allData`)
+            const data =await res.json()
+            const recipisss =data.find(recipi=>recipi.id==params.Id)
+            return recipisss
+    }
+        
       }
     ]
   }
